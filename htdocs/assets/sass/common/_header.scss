@@ -4,6 +4,9 @@
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    @include sp(){
+      position: static;
+    }
   }
   .head {
     display: flex;
@@ -14,12 +17,37 @@
     width: 200px;
     background-color: #ddd;
   }
+	.navWrap{
+    @include sp(){
+			position: absolute;
+			z-index: -1;
+			left: 0;
+			right: 0;
+			top: 48px;
+			bottom: 0;
+			overflow-y: auto;
+			opacity: 0;
+			visibility: hidden;
+			background-color: #ffffff;
+			@include transition();
+			html.menuOpen &{
+				opacity: 1;
+				visibility: visible;
+				z-index: 100;
+      }
+    }
+  }
   ul {
     &.sub {
       display: flex;
       position: absolute;
       top: 0;
       right: 0;
+      @include sp(){
+        display: block;
+        position: relative;
+        @include px(14);
+      }
       li {
         a {
           display: block;
@@ -33,6 +61,9 @@
     ul {
       display: flex;
       justify-content: space-between;
+      @include sp(){
+        display: block;
+      }
     }
     li {
       a {
@@ -84,11 +115,15 @@
     align-items: center;
     width: 40px;
     height: 40px;
+    @include sp(){
+      display: flex;
+    }
     div {
       width: 30px;
       height: 1px;
       background-color: #000;
       position: relative;
+      @include transition();
       &:before {
         content: "";
         display: block;
@@ -97,6 +132,7 @@
         background-color: #000;
         position: relative;
         top: -11px;
+        @include transition();
       }
       &:after {
         content: "";
@@ -106,6 +142,7 @@
         background-color: #000;
         position: relative;
         top: 10px;
+        @include transition();
       }
     }
   }
