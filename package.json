@@ -1,0 +1,30 @@
+{
+  "name": "default_dev",
+  "version": "0.0.1",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "css-declaration-sorter": "^4.0.1",
+    "css-mqpacker": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 10",
+    "Android >= 4"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ]
+}

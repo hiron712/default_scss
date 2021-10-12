@@ -1,0 +1,131 @@
+#header {
+  background-color: #eee;
+  .headerInr {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo {
+    display: block;
+    width: 200px;
+    background-color: #ddd;
+  }
+  ul {
+    &.sub {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 0;
+      li {
+        a {
+          display: block;
+          padding: 10px;
+        }
+      }
+    }
+  }
+  nav {
+    position: relative;
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+    li {
+      a {
+        display: block;
+        padding: 20px;
+      }
+      .sub {
+        display: none;
+        visibility: hidden;
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background-color: #ddd;
+        ul {
+          justify-content: flex-start;
+          position: relative;
+          &:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -100%;
+            right: -100%;
+            top: 0;
+            bottom: 0;
+            background-color: #ddd;
+            display: block;
+          }
+        }
+      }
+      &:hover {
+        .sub {
+          display: block;
+          visibility: visible;
+          z-index: 2;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .menu {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    div {
+      width: 30px;
+      height: 1px;
+      background-color: #000;
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 1px;
+        background-color: #000;
+        position: relative;
+        top: -11px;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 1px;
+        background-color: #000;
+        position: relative;
+        top: 10px;
+      }
+    }
+  }
+}
+html {
+  &.menuOpen {
+    #header {
+      .menu {
+        div {
+          background-color: transparent;
+          &:before {
+            transform: rotate(-135deg);
+            top: 0;
+          }
+          &:after {
+            transform: rotate(135deg);
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
